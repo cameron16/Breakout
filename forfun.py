@@ -1,15 +1,24 @@
+#Cameron Boroumand
+#https://projecteuler.net/problems
 import math
 
-def natural_numbers():
+
+#------------PROBLEM 1----------
+def natural_numbers(): 
+    """returns sum of all the multiples of 3 or 5 below 1000"""
     
     acc=0
     for x in range(1000): 
         if x%3==0 or x%5==0:
             acc=acc+x
     return acc
+#end problem 1
 
 
-def even_fibonacci():
+#------------PROBLEM 2----------
+def even_fibonacci(): #problem 2
+    """ By considering the terms in the Fibonacci sequence whose values
+    do not exceed 4 million, find the sum of the even-valued terms"""
     
     list=[1,2]
     secondlist=[]
@@ -26,119 +35,10 @@ def even_fibonacci():
     for l in range(len(secondlist)):
         acc=acc+secondlist[l]
     return acc
-            
-    
-def prime_factor(x):
-    
-    """returns greatest prime factor of an integer"""
-    thelist=get_factors(x)
-    newlist=return_primelist(thelist)
-    result=newlist[-1]
-    return result
-    
-
-def get_factors(x):
-    """Returns: factors of an integer x in a list"""
-    
-    thelist=[]
-    for m in range(x+1):
-        if m!=0 and x%m==0:
-            thelist.append(m)
-    return thelist
-    
-
-def return_prime(x):
-    
-    for m in range(x+1):
-        if m!=0 and x%m==0 and m!=1 and x!=m:
-            return 'not prime'
-    return 'prime'
+#end problem 2
 
 
-def return_notprimelist(thelist):
-    
-    """Returns: list wih only non-prime numbers remaining
-    
-    Precondition: list is a list of integers"""
-    
-    newerlist=[]
-    k=0
-    for m in range(len(thelist)):
-        #print str(m)+' this is m'
-        k=1
-        for j in range(thelist[m]):
-            #print thelist[m]
-            if k==1 and j!=0 and j!=1 and thelist[m]%j==0 and thelist[m]!=1: #if your prime, then you wil pass. if youre not prime, then you qualify for this condition and are therefore fucked
-                newerlist.append(thelist[m])
-                k=2   
-    return newerlist
-   
-   
-def return_primelist(thelist2):
-    """Returns: list with only prime integers remaining"""
-    
-    jokerlist=thelist2
-    #print jokerlist #jokerlist has all numbers, longer list
-    newlist=return_notprimelist(thelist2)
-    #print newlist #newlist has only numbers that are not prime
-    
-    acc=0
-    for x in range(len(newlist)):
-        #print x
-        for y in range(len(jokerlist)):
-            #print str(y)+' this is y'
-            if jokerlist[y]==newlist[x]:
-                jokerlist.pop(y)
-                jokerlist.append(0)
-                #print jokerlist
-                acc=acc+1
-    for l in range(acc):
-        jokerlist.pop(-1)
-    return jokerlist
-    
-    
-def recursive_prime(x):
-    
-    """Returns: string saying whether a number is prime or not"""
-    for m in range(x+1):
-        if m!=0 and x%m==0 and m!=1 and x!=m:
-            return 'not prime'
-    return 'prime'
-
-
-def realrecursive_prime(x):
-    
-    """Returns: largest prime factor of an integer"""
-    
-    if x%2==0:
-        div=x/2
-    else:
-        div=x/2+0.5
-    for m in range(div+1):
-        if m==1 or m==0:
-            k=2
-        elif div%m==0 and div!=m:
-            return realrecursive_prime(x/2)
-        else:
-            return div
-
-
-def smallest_multiple():
-    
-    thelist=[]
-    for l in range(3000):
-        thelist=[]
-        thelist=get_factors(x)
-    for x in range(300000000):
-        if x!=0 and x%20==0 and x%19==0 and x%18==0 and x%17==0 and x%16==0:
-            
-            if x%15==0 and x%14==0 and x%13==0 and x%12==0 and x%11==0:
-                if x%10==0 and x%9==0 and x%8==0 and x%7==0:
-                 #   print x
-                    if x%6==0 and x%5==0 and x%4==0 and x%3==0 and x%2==0:
-        
-                        return x
-   
+#------------PROBLEM 7----------
 
 def onethousand_prime():
     
@@ -149,22 +49,20 @@ def onethousand_prime():
         if x!=0 and x%2!=0 and x%3!=0 and x%5!=0:
             k=1
             for m in range(int(round(math.sqrt(x)))):
-                #print str(x)+'this is x'
                 if x!=1 and m!=0 and m!=1 and x%m==0 and x!=m: 
-                    #y=2
                     k=2
-                    #print str(m)+'this is m'
-                    #print 'fucke me'
-            #print str(k)+' this is k'
-        
             if k==1 and x!=1 and x%2!=0 and x%4!=0 and int(round(math.sqrt(x)))*int(round(math.sqrt(x)))!=x: 
                 acc=acc+1
-                #print str(acc)+' THIS IS ACC LOOK AT MEEEEE'
                 print x
             if acc==10001:
                 return x
+#end problem 7
+    
+            
+#------------PROBLEM 10----------
 
 def summation_of_primes():
+    """ Find the sum of all the primes below two million"""
     
     k=1
     acc=2
@@ -172,57 +70,18 @@ def summation_of_primes():
         if x!=0 and x%2!=0 and x%4!=0 and x%6!=0 and x%8!=0 and x%10!=0:
             k=1
             for m in range(x):
-                #print str(x)+'this is x'
                 if x!=1 and m!=0 and m!=1 and x%m==0 and x!=m:
-                    #y=2
                     k=2
-                    #print str(m)+'this is m'
-                    #print 'fucke me'
-            #print str(k)+' this is k'
-        
             if k==1 and x!=1 and x%2!=0 and x%4!=0: #and y!=2:
                 acc=acc+x
-                #print str(acc)+' THIS IS ACC LOOK AT MEEEEE'
+                #print str(acc)+' THIS IS ACC"""
                 print x
     return acc
-
-
+#end problem 10
     
     
-#2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
-
-#What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
-    
-    
-    
-    
-#    The prime factors of 13195 are 5, 7, 13 and 29.
-#
-#What is the largest prime factor of the number 600,851,475,143 ?
-    
-    
-def sum_square_difference(): #euler number 5
-    
-    """Returns: The difference b6tween the sum of the squares of the first
-    one hundren natural numbers and the square of the sum"""
-    
-    sum=0
-    for x in range(101):
-        sum=sum+x
-    squareofsum=sum*sum
-    #print squareofsum #this works
-    
-    sum2=0
-    for y in range(101):
-        sum2=sum2+y*y
-    sumofsquare=sum2
-    #print sumofsquare
-    l=squareofsum-sumofsquare
-    #print l
-    return l
+#------------PROBLEM 9----------
         
-
-
 def pythagorean_triplet():
     for a in range(1000):
         for b in range(1000):
@@ -244,8 +103,12 @@ def pythagorean_triplet():
             #check if sum is a perfect square
             #if sum is a perfect square, then check if a+ b + c = 1000
             #if it is 1000, then return abc/ else keep looping
-            
+#end problem 9        
+ 
         
+#------------PROBLEM 12----------
+"""What is the value of the first triangle number to have
+over five hundred divisors?"""
 
 def highly_divisible_triangular_number():
     triangular_number_list=[]
@@ -261,51 +124,14 @@ def highly_divisible_triangular_number():
         if len(thelist)>500:
             print y
             return y
-        
-        
-   # return triangular_number_list
-
-    
-
-
-#def largest_product_in_series():
-    
- #   y= 731671765313306249192251196744265747423553491949349698352031277450632623957831801698480186947885184385861560789112949495459501737958331952853208805511125406987471585238630507156932909632952274430435576689664895044524452316173185640309871112172238311362229893423380308135336276614282806444486645238749303589072962904915604407723907138105158593079608667017242712188399879790879227492190169972088809377665727333001053367881220235421809751254540594752243525849077116705560136048395864467063244157221553975369781797784617406495514929086256932197846862248839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450
-  #  return y
-
-
-        
-        
-            
-    
-
-
-
-#def numberof():
-#    """Returns: number of times v occurs in thelist.
-#    
-#    Precondition: thelist is a list of ints
-#                  v is an int"""
-#    
-#    
-#    y=0
-#    if thelist==[]:
-#        return 0
-
-#    if int(thelist[0])==int(v):
-#        y=1
-#    return y+numberof(thelist[1:],v)
-    
-    
-    
+#end problem 12
    
-   # If we list all the natural numbers below 10 that are multiples of 3 or 5,
-   #we get 3, 5, 6 and 9. The sum of these multiples is 23.
+        
+#------------PROBLEM 50----------
 
-#Find the sum of all the multiples of 3 or 5 below 1000.
-
-
-def consecutive_prime_sum(): #problem 50
+def consecutive_prime_sum():
+    """Returns the prime number below one-million that can
+    be written as the sum of the most consecutive primes"""
     print "testing consecutive_prime_sum"
     sum=0
     for x in range(100000):
@@ -316,16 +142,14 @@ def consecutive_prime_sum(): #problem 50
                 if sum > 1000000:
                     sum = sum - x
                     return sum
-                
-
-
-        
         #if x is prime, then add x to sum
         #check if sum is above 1 million
         #if sum is above 1 million, then subtract x from it and return that number
-        
+#end problem 50      
 
-"""problem 44"""
+
+#------------PROBLEM 44----------
+
 #find all the pentagonal numbers and put them in a list
 #now, use nested for loop to sum every single possible comination of pentagonal numbers
 #put these sums in a list (this list contains ALL the D = Pk-Pj)
@@ -437,8 +261,7 @@ def pentagon_numbers(): #problem 44
         except ValueError:
             print "Oops!"
         
-
-
+        
 def pentagon_numbers2(): #problem 44
     print "testing pentagon_numbers"
     pentlist=find_pentagonal_numbers()
@@ -470,4 +293,121 @@ def sum_list2(y): #given a list of ints from k,....,j
                     print "doubleoops!"
             except ValueError:
                 print "oooops!"
+                
+#end problem 44
+
+#------------Miscellaneous and More Helper Functions----------
+
+def sum_square_difference(): #euler number 5
+    
+    """Returns: The difference b6tween the sum of the squares of the first
+    one hundren natural numbers and the square of the sum"""
+    
+    sum=0
+    for x in range(101):
+        sum=sum+x
+    squareofsum=sum*sum
+    #print squareofsum #this works
+    sum2=0
+    for y in range(101):
+        sum2=sum2+y*y
+    sumofsquare=sum2
+    #print sumofsquare
+    l=squareofsum-sumofsquare
+    #print l
+    return l
+
+
+def prime_factor(x):
+    
+    """returns greatest prime factor of an integer x"""
+    thelist=get_factors(x)
+    newlist=return_primelist(thelist)
+    result=newlist[-1]
+    return result
+    
+
+def get_factors(x):
+    """Returns: factors of an integer x in a list"""
+    
+    thelist=[]
+    for m in range(x+1):
+        if m!=0 and x%m==0:
+            thelist.append(m)
+    return thelist
+    
+
+def return_prime(x):
+    """Determines if an int x is a prime number or not.
+    Return type: string"""
+    
+    for m in range(x+1):
+        if m!=0 and x%m==0 and m!=1 and x!=m:
+            return 'not prime'
+    return 'prime'
+
+def recursive_prime(x):
+    """Determines if an int x is a prime number or not.
+    Return type: string"""
+    
+    for m in range(x+1):
+        if m!=0 and x%m==0 and m!=1 and x!=m:
+            return 'not prime'
+    return 'prime'
+
+
+def return_notprimelist(thelist):
+    """Returns: list wih only non-prime numbers remaining
+    Precondition: list is a list of only integers"""
+    
+    newerlist=[]
+    k=0
+    for m in range(len(thelist)):
+        #print str(m)+' this is m'
+        k=1
+        for j in range(thelist[m]):
+            #print thelist[m]
+            if k==1 and j!=0 and j!=1 and thelist[m]%j==0 and thelist[m]!=1: #if your prime, then you wil pass. if youre not prime, then you qualify for this condition and are therefore fucked
+                newerlist.append(thelist[m])
+                k=2   
+    return newerlist
+   
+def return_primelist(thelist2):
+    """Returns: list with only prime integers remaining
+    Precondition: list is a list of only integers"""
+    
+    jokerlist=thelist2
+    #print jokerlist #jokerlist has all numbers, longer list
+    newlist=return_notprimelist(thelist2)
+    #print newlist #newlist has only numbers that are not prime
+    acc=0
+    for x in range(len(newlist)):
+        #print x
+        for y in range(len(jokerlist)):
+            #print str(y)+' this is y'
+            if jokerlist[y]==newlist[x]:
+                jokerlist.pop(y)
+                jokerlist.append(0)
+                #print jokerlist
+                acc=acc+1
+    for l in range(acc):
+        jokerlist.pop(-1)
+    return jokerlist
+    
+    
+def realrecursive_prime(x):
+    
+    """Returns: largest prime factor of an integer"""
+    
+    if x%2==0:
+        div=x/2
+    else:
+        div=x/2+0.5
+    for m in range(div+1):
+        if m==1 or m==0:
+            k=2
+        elif div%m==0 and div!=m:
+            return realrecursive_prime(x/2)
+        else:
+            return div
 
