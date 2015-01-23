@@ -1,7 +1,4 @@
 # constants.py
-# Walker M. White (wmw2)
-# November 12, 2013
-# ADD YOUR NAME(S) AND NETID(S) TO THIS FILE IF YOU ADD CONSTANTS
 """Constants for Breakout
 
 This module global constants for the game Breakout.  These constants 

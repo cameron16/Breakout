@@ -1,6 +1,5 @@
 # controller.py
 # Cameron Boroumand cb596
-# December 9, 2013
 """Primary module for Breakout application
 
 This module contains the controller class for the Breakout application.

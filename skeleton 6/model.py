@@ -1,6 +1,5 @@
 # model.py
 # Cameron Boroumand cb596
-# December 9, 2013
 """Model module for Breakout
 
 This module contains the model classes for the Breakout game. Instances of
